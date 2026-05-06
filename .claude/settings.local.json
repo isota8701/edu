@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm /c/Users/isota/works/edu/.claude/agents/math-tutor.md)",
+      "Bash(rm /c/Users/isota/works/edu/.claude/commands/today.md)",
+      "Bash(rm /c/Users/isota/works/edu/.claude/commands/done.md)",
+      "Bash(chmod +x C:/Users/isota/works/edu/.claude/hooks/*.sh)",
+      "Bash(bash C:/Users/isota/works/edu/.claude/hooks/session_start.sh)",
+      "Bash(echo '{\"tool_name\":\"Write\",\"tool_input\":{\"file_path\":\"C:\\\\\\\\Users\\\\\\\\isota\\\\\\\\works\\\\\\\\edu\\\\\\\\outputs\\\\\\\\daily\\\\\\\\2026-05-04-수학.md\",\"content\":\"...\"}}')",
+      "Bash(bash C:/Users/isota/works/edu/.claude/hooks/post_daily_write.sh)"
+    ]
+  }
+}
