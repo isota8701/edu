@@ -28,7 +28,7 @@
 ## 실행 루틴
 1. `student/profile.md`, `outputs/progress.md`, 해당 과목 커리큘럼 읽기
 2. 해당 과목 subagent에게 진단 형식 요청
-3. 결과 출력은 `outputs/daily/YYYY-MM-DD.md`에 추가하거나 별도 `outputs/level/{date}_{subject}.md`로 저장 (디폴트: daily에 추가)
+3. 결과 출력은 `outputs/daily/YYYY-MM-DD-{과목}.md`에 섹션으로 추가하거나 별도 `outputs/level/{date}_{subject}.md`로 저장 (디폴트: 과목별 daily에 추가)
 4. 결과 입력은 `/done`으로 받음
 
 ## 출력 형식 (모드 B 예시)
