@@ -38,13 +38,14 @@ project/
 │   └── profile.md          # 아이 특성·누적 취약점
 ├── outputs/
 │   ├── progress.md         # 학습 진도 (세션마다 /done으로 업데이트)
+│   ├── learning-log.md     # 완료 학습 한눈에 보기 (git log 스타일)
 │   ├── curriculum/
 │   │   ├── math.md         # 사고력 수학 단원 시퀀스
 │   │   ├── korean.md       # 국어 (지문 주제 시퀀스)
 │   │   ├── english.md      # 영어 (파닉스 + 단어 트랙)
 │   │   └── enrichment.md   # 과학·인문학 (간헐, 명시 호출 시)
 │   └── daily/
-│       └── YYYY-MM-DD.md   # 그날의 학습 자료
+│       └── YYYY-MM-DD-{과목}.md / YYYY-MM-DD-{과목}-done.md
 └── .claude/
     ├── agents/
     │   ├── math-tutor.md
@@ -78,8 +79,8 @@ project/
 
 | 명령 | 역할 | 인수 |
 |------|------|------|
-| `/today` | 오늘 세션 자료 생성 → `outputs/daily/YYYY-MM-DD.md` | `[과목] [주제\|자유컨텍스트]` (모두 선택) |
-| `/done` | 결과 기록 + `outputs/progress.md`·`student/profile.md` 갱신 | `[메모]` |
+| `/today` | 오늘 세션 자료 생성 → `outputs/daily/YYYY-MM-DD-{과목}.md` | `[과목] [주제\|자유컨텍스트]` (모두 선택) |
+| `/done` | 결과 기록 + `outputs/progress.md`·`student/profile.md`·`outputs/learning-log.md` 갱신, daily 파일 `-done.md` 표시 | `[날짜] [과목] [메모]` |
 | `/plan` | 과목 커리큘럼 생성/갱신 → `outputs/curriculum/{과목}.md` | `[과목]` |
 | `/level` | 가벼운 진단 (단원 시작/종료) | `[과목]` |
 | `/review` | 취약점 복습 문제 재생성 | `[주제]` |
@@ -94,7 +95,8 @@ project/
 4. 새 단원 진입이면 개념 도입 + 가벼운 진단 1~2문제 자동 추가
 5. 단원 종료 시점이면 5문제 평가 추가 (= /level 자동 호출)
 6. 해당 subagent에 모든 컨텍스트 전달 → 콘텐츠 생성
-7. outputs/daily/YYYY-MM-DD.md 작성
+7. outputs/daily/YYYY-MM-DD-{과목}.md 작성
+8. 같은 날짜·과목의 `-done.md` 파일이 이미 있으면 완료 자료이므로 덮어쓰지 않음
 ```
 
 ---
@@ -167,5 +169,5 @@ project/
 - `spec.md`는 참고용, 수정하지 않는다.
 - 새 결정은 `PROGRESS.md` 섹션 2에 행 추가 (이력 유지).
 - `PROGRESS.md` 섹션 4 체크박스는 즉시 갱신.
-- 사용자가 학습 결과를 리포트백하면 `outputs/progress.md`·`student/profile.md` 갱신.
+- 사용자가 학습 결과를 리포트백하면 `outputs/progress.md`·`student/profile.md`·`outputs/learning-log.md`를 갱신하고 daily 파일명을 `YYYY-MM-DD-{과목}-done.md`로 변경.
 - 이 파일(`CLAUDE.md`)은 철학·구조 변경 시에만 수정. 일상은 `PROGRESS.md`에서.
