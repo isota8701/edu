@@ -7,7 +7,11 @@
       "Bash(chmod +x C:/Users/isota/works/edu/.claude/hooks/*.sh)",
       "Bash(bash C:/Users/isota/works/edu/.claude/hooks/session_start.sh)",
       "Bash(echo '{\"tool_name\":\"Write\",\"tool_input\":{\"file_path\":\"C:\\\\\\\\Users\\\\\\\\isota\\\\\\\\works\\\\\\\\edu\\\\\\\\outputs\\\\\\\\daily\\\\\\\\2026-05-04-수학.md\",\"content\":\"...\"}}')",
-      "Bash(bash C:/Users/isota/works/edu/.claude/hooks/post_daily_write.sh)"
+      "Bash(bash C:/Users/isota/works/edu/.claude/hooks/post_daily_write.sh)",
+      "Skill(update-config)",
+      "Bash(git mv *)",
+      "Bash(mv \"outputs/daily/2026-05-17-수학.md\" \"outputs/daily/2026-05-17-수학-done.md\")",
+      "Bash(mv \"outputs/daily/2026-05-17-영어.md\" \"outputs/daily/2026-05-17-영어-done.md\")"
     ]
   }
 }
