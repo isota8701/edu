@@ -36,6 +36,7 @@ Codex에서 slash command처럼 보이는 사용자 입력을 받으면 `.claude
 | `/plan ...` | `.claude/commands/plan.md` |
 | `/level ...` | `.claude/commands/level.md` |
 | `/review ...` | `.claude/commands/review.md` |
+| `/principal ...` | `.claude/commands/principal.md` |
 
 과목별 콘텐츠를 만들 때는 `.claude/agents/{agent}.md`를 해당 역할 프롬프트처럼 적용한다.
 
@@ -72,6 +73,18 @@ Codex의 실제 `spawn_agent` 도구는 사용자가 명시적으로 병렬 agen
 7. 다음 세션에서 보강할 포인트를 1줄로 정리한다.
 
 메모가 모호해서 학습 기록이 왜곡될 위험이 있으면 1~2개만 짧게 질문한다. 충분히 추론 가능하면 바로 갱신한다.
+
+`/done` 메모에 **원칙급 신호**(접근·설명 방식 의문, 학원/시험 외부 입력, 3세션+ 반복 약점, 방향 제시)가 있으면 `outputs/principal-log.md` 미검토 대기열에 한 줄 적재하고, 선제 제안 규칙에 해당하면 `/principal` 실행을 제안한다.
+
+### `/principal [과목|피드백]`
+
+1. `.claude/commands/principal.md`를 읽는다.
+2. `outputs/principal-log.md`(대기열), `student/profile.md`, `.claude/agents/{과목}-tutor.md`, `outputs/curriculum/{과목}.md`, `data/academy_research.md`, `PROGRESS.md`, `outputs/progress.md`를 읽는다.
+3. 피드백을 **1~3개 지속 교육학 원칙**으로 증류한다(관찰→원칙→근거→적용 범위).
+4. 네 곳에 **자동 반영**: 과목 에이전트 정의(원장 원칙 섹션) · 커리큘럼(시퀀스·강조 조정) · 프로파일(접근 원칙) · `PROGRESS.md`(새 D결정, 마지막 D+1).
+5. 대기열의 처리 항목을 검토 완료 로그로 옮기고, 무엇을 어디에 바꿨는지 표로 요약 보고한다.
+
+`/done`이 "세션 결과 기록"이라면 `/principal`은 "원칙 전파"다. 영향이 크므로 원칙은 절제하고 변경 요약을 분명히 한다.
 
 ## 4. 출력·편집 규칙
 

@@ -11,7 +11,12 @@
       "Skill(update-config)",
       "Bash(git mv *)",
       "Bash(mv \"outputs/daily/2026-05-17-수학.md\" \"outputs/daily/2026-05-17-수학-done.md\")",
-      "Bash(mv \"outputs/daily/2026-05-17-영어.md\" \"outputs/daily/2026-05-17-영어-done.md\")"
+      "Bash(mv \"outputs/daily/2026-05-17-영어.md\" \"outputs/daily/2026-05-17-영어-done.md\")",
+      "WebSearch",
+      "WebFetch(domain:griminii.tistory.com)",
+      "WebFetch(domain:blog.naver.com)",
+      "WebFetch(domain:namu.wiki)",
+      "Bash(git add *)"
     ]
   }
 }
